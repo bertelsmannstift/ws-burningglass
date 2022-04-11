@@ -9,7 +9,7 @@ from sqlalchemy import (CHAR, BigInteger, Boolean, Column, Date, Enum,
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import foreign, relationship, remote, validates
 
-from models.base_class import Base
+from models.base import Base
 
 textkernel_posting_skills = Table(
     "textkernel_posting_skills",
@@ -147,8 +147,10 @@ class TextkernelOrganization(Base):
         default=None,
     )
 
-    size = relationship("TextkernelOrganizationSize", uselist=False, lazy="selectin")
-    industry = relationship("TextkernelOrganizationIndustry", uselist=False, lazy="selectin")
+    size = relationship("TextkernelOrganizationSize",
+                        uselist=False, lazy="selectin")
+    industry = relationship(
+        "TextkernelOrganizationIndustry", uselist=False, lazy="selectin")
     klassifikation_wirtschaftszweige = relationship(
         "KlassifikationWirtschaftszweige", uselist=False, lazy="selectin"
     )
@@ -193,22 +195,29 @@ class TextkernelPosting(Base):
 
     source_url = Column(String(length=255), nullable=True, default=None)
     source_website = Column(String(length=255), nullable=False)
-    source_type_id = Column(Integer, ForeignKey("textkernel_source_types.id"), nullable=False)
+    source_type_id = Column(Integer, ForeignKey(
+        "textkernel_source_types.id"), nullable=False)
 
     location_id = Column(Integer, nullable=True, default=None)
     location_name = Column(String(length=255), nullable=True, default=None)
-    location_coordinates = Column(String(length=255), nullable=True, default=None)
+    location_coordinates = Column(
+        String(length=255), nullable=True, default=None)
     region_id = Column(
         CHAR(length=2), ForeignKey("textkernel_regions.id"), nullable=True, default=None
     )
 
     advertiser_name = Column(String(length=255), nullable=True, default=None)
     advertiser_street = Column(String(length=255), nullable=True, default=None)
-    advertiser_postal_code = Column(String(length=10), nullable=True, default=None)
-    advertiser_location = Column(String(length=255), nullable=True, default=None)
-    advertiser_website = Column(String(length=255), nullable=True, default=None)
-    advertiser_reference_number = Column(String(length=255), nullable=True, default=None)
-    available_contact_fields = Column(String(length=512), nullable=True, default=None)
+    advertiser_postal_code = Column(
+        String(length=10), nullable=True, default=None)
+    advertiser_location = Column(
+        String(length=255), nullable=True, default=None)
+    advertiser_website = Column(
+        String(length=255), nullable=True, default=None)
+    advertiser_reference_number = Column(
+        String(length=255), nullable=True, default=None)
+    available_contact_fields = Column(
+        String(length=512), nullable=True, default=None)
 
     hours_per_week_from = Column(Integer, nullable=True, default=None)
     hours_per_week_to = Column(Integer, nullable=True, default=None)
@@ -238,15 +247,24 @@ class TextkernelPosting(Base):
     )
 
     region = relationship("TextkernelRegion", uselist=False, lazy="selectin")
-    education_level = relationship("TextkernelEducationLevel", uselist=False, lazy="selectin")
-    contract_type = relationship("TextkernelContractType", uselist=False, lazy="selectin")
-    working_hours_type = relationship("TextkernelWorkingHoursType", uselist=False, lazy="selectin")
-    employment_type = relationship("TextkernelEmploymentType", uselist=False, lazy="selectin")
-    isco_profession = relationship("IscoProfession", uselist=False, lazy="selectin")
-    onet_profession = relationship("OnetProfession", uselist=False, lazy="selectin")
-    source_type = relationship("TextkernelSourceType", uselist=False, lazy="selectin")
-    advertiser_type = relationship("TextkernelAdvertiserType", uselist=False, lazy="selectin")
-    organization = relationship("TextkernelOrganization", uselist=False, lazy="selectin")
+    education_level = relationship(
+        "TextkernelEducationLevel", uselist=False, lazy="selectin")
+    contract_type = relationship(
+        "TextkernelContractType", uselist=False, lazy="selectin")
+    working_hours_type = relationship(
+        "TextkernelWorkingHoursType", uselist=False, lazy="selectin")
+    employment_type = relationship(
+        "TextkernelEmploymentType", uselist=False, lazy="selectin")
+    isco_profession = relationship(
+        "IscoProfession", uselist=False, lazy="selectin")
+    onet_profession = relationship(
+        "OnetProfession", uselist=False, lazy="selectin")
+    source_type = relationship(
+        "TextkernelSourceType", uselist=False, lazy="selectin")
+    advertiser_type = relationship(
+        "TextkernelAdvertiserType", uselist=False, lazy="selectin")
+    organization = relationship(
+        "TextkernelOrganization", uselist=False, lazy="selectin")
 
     def to_dict(self):
         return dict([(k, getattr(self, k)) for k in self.__dict__.keys() if not k.startswith("_")])

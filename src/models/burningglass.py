@@ -12,166 +12,162 @@ from sqlalchemy.orm import foreign, relationship, remote, validates
 from models.base import Base
 
 
-class BurningGlassBase(Base):
-    __table_args__ = {"schema": "burningglass"}
-
-
-class BurningGlassCategorySector(BurningGlassBase):
+class BurningGlassCategorySector(Base):
     # define table name
-    __tablename__ = "l_category_sector"
+    __tablename__ = "burningglass_l_category_sector"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassContract(BurningGlassBase):
+class BurningGlassContract(Base):
     # define table name
-    __tablename__ = "l_contract"
+    __tablename__ = "burningglass_l_contract"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassCountry(BurningGlassBase):
+class BurningGlassCountry(Base):
     # define table name
-    __tablename__ = "l_country"
+    __tablename__ = "burningglass_l_country"
 
     # define fields
     id = Column(VARCHAR(length=2), primary_key=True)
     title = Column(String)
 
 
-class BurningGlassEducationalLevel(BurningGlassBase):
+class BurningGlassEducationalLevel(Base):
     # define table name
-    __tablename__ = "l_educational_level"
+    __tablename__ = "burningglass_l_educational_level"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassEscoLevel1(BurningGlassBase):
+class BurningGlassEscoLevel1(Base):
     # define table name
-    __tablename__ = "l_esco_level_1"
+    __tablename__ = "burningglass_l_esco_level_1"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassEscoLevel2(BurningGlassBase):
+class BurningGlassEscoLevel2(Base):
     # define table name
-    __tablename__ = "l_esco_level_2"
+    __tablename__ = "burningglass_l_esco_level_2"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassEscoLevel3(BurningGlassBase):
+class BurningGlassEscoLevel3(Base):
     # define table name
-    __tablename__ = "l_esco_level_3"
+    __tablename__ = "burningglass_l_esco_level_3"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassEscoLevel4(BurningGlassBase):
+class BurningGlassEscoLevel4(Base):
     # define table name
-    __tablename__ = "l_esco_level_4"
+    __tablename__ = "burningglass_l_esco_level_4"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassEscoSkillLevel3(BurningGlassBase):
+class BurningGlassEscoSkillLevel3(Base):
     # define table name
-    __tablename__ = "l_escoskill_level_3"
+    __tablename__ = "burningglass_l_escoskill_level_3"
 
     # define fields
     id = Column(BigInteger, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassExperience(BurningGlassBase):
+class BurningGlassExperience(Base):
     # define table name
-    __tablename__ = "l_experience"
+    __tablename__ = "burningglass_l_experience"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassMacroRegion(BurningGlassBase):
+class BurningGlassMacroRegion(Base):
     # define table name
-    __tablename__ = "l_macro_region"
+    __tablename__ = "burningglass_l_macro_region"
 
     # define fields
     id = Column(CHAR(length=3), primary_key=True)
     title = Column(String)
 
 
-class BurningGlassMacroSector(BurningGlassBase):
+class BurningGlassMacroSector(Base):
     # define table name
-    __tablename__ = "l_macro_sector"
+    __tablename__ = "burningglass_l_macro_sector"
 
     # define fields
     id = Column(CHAR(length=1), primary_key=True)
     title = Column(String)
 
 
-class BurningGlassProvince(BurningGlassBase):
+class BurningGlassProvince(Base):
     # define table name
-    __tablename__ = "l_province"
+    __tablename__ = "burningglass_l_province"
 
     # define fields
     id = Column(CHAR(length=5), primary_key=True)
     title = Column(String)
 
 
-class BurningGlassRegion(BurningGlassBase):
+class BurningGlassRegion(Base):
     # define table name
-    __tablename__ = "l_region"
+    __tablename__ = "burningglass_l_region"
 
     # define fields
     id = Column(CHAR(length=4), primary_key=True)
     title = Column(String)
 
 
-class BurningGlassSalary(BurningGlassBase):
+class BurningGlassSalary(Base):
     # define table name
-    __tablename__ = "l_salary"
+    __tablename__ = "burningglass_l_salary"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassSector(BurningGlassBase):
+class BurningGlassSector(Base):
     # define table name
-    __tablename__ = "l_sector"
+    __tablename__ = "burningglass_l_sector"
 
     # define fields
     id = Column(VARCHAR(length=2), primary_key=True)
     title = Column(String)
 
 
-class BurningGlassWorkingHour(BurningGlassBase):
+class BurningGlassWorkingHour(Base):
     # define table name
-    __tablename__ = "l_working_hours"
+    __tablename__ = "burningglass_l_working_hours"
 
     # define fields
     id = Column(Integer, primary_key=True)
     title = Column(String)
 
 
-class BurningGlassPosting(BurningGlassBase):
+class BurningGlassPosting(Base):
     # define table name
-    __tablename__ = "f_postings"
+    __tablename__ = "burningglass_f_postings"
 
     # define fields
     id = Column(Integer, primary_key=True)
@@ -202,9 +198,9 @@ class BurningGlassPosting(BurningGlassBase):
     companyname = Column(String)
 
 
-class BurningGlassSkill(BurningGlassBase):
+class BurningGlassSkill(Base):
     # define table name
-    __tablename__ = "f_skills"
+    __tablename__ = "burningglass_f_skills"
 
     # define fields
     id = Column(Integer, primary_key=True)

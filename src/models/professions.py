@@ -2,7 +2,7 @@
 from sqlalchemy import CHAR, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 
-from models.base_class import Base
+from models.base import Base
 
 
 class OnetProfessionClass(Base):
@@ -21,7 +21,8 @@ class OnetProfessionGroup(Base):
     # define fields
     id = Column(Integer, primary_key=True)
     label = Column(String(length=512), nullable=False)
-    onet_profession_class_id = Column(Integer, ForeignKey("onet_profession_classes.id"))
+    onet_profession_class_id = Column(
+        Integer, ForeignKey("onet_profession_classes.id"))
 
 
 class OnetProfession(Base):
@@ -31,7 +32,8 @@ class OnetProfession(Base):
     # define fields
     id = Column(Integer, primary_key=True)
     label = Column(String(length=512), nullable=False)
-    onet_profession_group_id = Column(Integer, ForeignKey("onet_profession_groups.id"))
+    onet_profession_group_id = Column(
+        Integer, ForeignKey("onet_profession_groups.id"))
 
 
 class IscoProfessionMajor(Base):
@@ -54,7 +56,8 @@ class IscoProfessionSubMajor(Base):
     id = Column(CHAR(length=2), primary_key=True)
     en = Column(String(length=255), nullable=False)
     de = Column(String(length=255), nullable=False)
-    isco_profession_major_id = Column(CHAR(length=1), ForeignKey("isco_profession_major.id"))
+    isco_profession_major_id = Column(
+        CHAR(length=1), ForeignKey("isco_profession_major.id"))
 
     children = relationship("IscoProfessionMinor", lazy="subquery")
 
@@ -82,4 +85,5 @@ class IscoProfession(Base):
     id = Column(CHAR(length=4), primary_key=True)
     en = Column(String(length=255), nullable=False)
     de = Column(String(length=255), nullable=False)
-    isco_profession_minor_id = Column(CHAR(length=3), ForeignKey("isco_profession_minor.id"))
+    isco_profession_minor_id = Column(
+        CHAR(length=3), ForeignKey("isco_profession_minor.id"))
