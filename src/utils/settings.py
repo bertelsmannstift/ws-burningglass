@@ -1,0 +1,23 @@
+# import dependencies
+from pydantic import BaseSettings
+
+
+class Settings(BaseSettings):
+    class Config:
+        env_file = ".env"
+
+    # database credentials
+    DB_HOST: str
+    DB_USER: str
+    DB_PASSWORD: str
+    DB_DATABASE: str
+    DB_PORT: int = 5432
+
+    @property
+    def sql_connection(self) -> str:
+        """str: Synchronous Application connection string."""
+        return f"postgresql+psycopg2://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_SCHEMA}"
+
+
+
+settings = Settings()
