@@ -4,7 +4,7 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     class Config:
-        env_file = ".env"
+        env_file = "../../.env"
 
     # database credentials
     DB_HOST: str
