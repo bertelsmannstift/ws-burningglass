@@ -6,6 +6,13 @@ class Settings(BaseSettings):
     class Config:
         env_file = "../../.env"
 
+    # sftp credentials
+    SSH_HOST: str
+    SSH_USER: str
+    SSH_PRIVATE_KEY_FILE_PATH: str
+    SSH_PRIVATE_KEY_FILE_PASSWORD: str
+    SSH_DIR: str = "files"
+
     # database credentials
     DB_HOST: str
     DB_USER: str
