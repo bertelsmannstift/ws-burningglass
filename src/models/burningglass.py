@@ -196,6 +196,7 @@ class BurningGlassPosting(Base):
     source_category = Column(String)
     sourcecountry = Column(String)
     companyname = Column(String)
+    title = Column(String)
 
 
 class BurningGlassSkill(Base):
