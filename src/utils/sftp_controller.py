@@ -23,7 +23,6 @@ class Controller:
         logger.info('shutdown')
 
     def open_sftp(self):
-        print(settings.SSH_PRIVATE_KEY_FILE_PATH)
         private_key = paramiko.Ed25519Key.from_private_key_file(
             settings.SSH_PRIVATE_KEY_FILE_PATH, password=settings.SSH_PRIVATE_KEY_FILE_PASSWORD)
         self._transport.connect(

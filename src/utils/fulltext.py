@@ -14,7 +14,7 @@ class Fulltext_Textkernel:
 
 class Fulltext_BurningGlass:
     def __init__(self) -> None:
-        self.path = Path('../../volltexte/burningglass/2021')
+        self.path = Path('../../austausch/burningglass/2021')
 
     def get_file(self, general_id):
         filepath = self.path / f'{general_id}.json'
