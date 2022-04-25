@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     SSH_PRIVATE_KEY_FILE_PATH: str
     SSH_PRIVATE_KEY_FILE_PASSWORD: str
     SSH_DIR: str = "files"
+    SSH_DIR_LOCAL: str
 
     # database credentials
     DB_HOST: str

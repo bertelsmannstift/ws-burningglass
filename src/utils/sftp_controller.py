@@ -37,7 +37,7 @@ class Controller:
         filename = f'{UUID(id).hex}.json'
         path = Path(
             f'{settings.SSH_DIR}/{published_at.date().isoformat()}/{filename}')
-        local_path = Path(Path.cwd(), path)
+        local_path = Path(Path.cwd(), f'{settings.SSH_DIR_LOCAL}', path)
         # Create parent folder locally, if it does not exist
         if local_path.exists():
             with local_path.open() as reader:
